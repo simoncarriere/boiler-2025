@@ -34,3 +34,20 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Supabase Setup
+
+1. Create a new Supabase project at [supabase.com](https://supabase.com)
+
+2. Copy your project URL and anon key from Project Settings > API
+
+3. Create a `.env.local` file in the root directory with the following variables:
+```bash
+NEXT_PUBLIC_SUPABASE_URL=your-project-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+```
+
+4. Generate types for your database schema (after creating tables):
+```bash
+npx supabase gen types typescript --project-id your-project-id --schema public > lib/supabase/database.types.ts
+```
